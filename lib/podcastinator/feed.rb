@@ -106,6 +106,10 @@ module Podcastinator
         md5.to_s
       end
 
+      def is_guid_permalink?
+        false
+      end
+
       def time
         @time || File.mtime(local_filename)
       end

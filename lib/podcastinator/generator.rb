@@ -48,7 +48,7 @@ module Podcastinator
                 xml["itunes"].summary item.subtitle if item.subtitle.present?
                 xml["itunes"].image(href: if item.image_url.present? then item.image_url else feed.image_url end)
                 xml.enclosure(url: item.url, length: item.file_size, type: item.mime_type)
-                xml.guid(item.guid, isPermaLink: "false")
+                xml.guid(item.guid, isPermaLink: item.is_guid_permalink?)
                 xml.pubDate item.time.iso8601
                 xml["itunes"].duration item.duration.to_i
                 xml["itunes"].keywords item.keywords.join(",") if item.keywords.present?
