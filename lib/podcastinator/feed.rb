@@ -29,8 +29,10 @@ module Podcastinator
       @image_url   = options[:image_url]
       @keywords    = options[:keywords]
       @owner       = Owner.build(options[:owner_name], options[:owner_email])
+    end
 
-      @items =
+    def items
+      @items ||=
         Dir.chdir(local_path) do
           Dir[*Item.globs].uniq.map do |filename|
             Item.new(self, filename)

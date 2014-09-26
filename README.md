@@ -1,6 +1,6 @@
 # Podcastinator
 
-TODO: Write a gem description
+This is a gem for generating the XML for a podcast feed.
 
 ## Installation
 
@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### On the command line
+
+### As an API
+
+#### Creating the podcast XML from data in memory
+
+```ruby
+class Feed < Podcastinator::Feed
+  def initialize(options = {})
+    super
+    @items_hash = options[:items_hash]
+  end
+  def items
+  end
+end
+```
+
+#### Creating the podcast XML from audio files on disk
 
 ## Contributing
 
