@@ -62,6 +62,7 @@ module Podcastinator
         file_size
         mime_type
         duration
+        summary
       )
 
       def initialize(feed, filename)
