@@ -20,6 +20,9 @@ Or install it yourself as:
 
 ### On the command line
 
+From within a directory that has audio files, running `podcastinator` alone
+will generate an `index.xml` based on the MP3 files in your current directory.
+
 ### As an API
 
 #### Creating the podcast XML from data in memory
