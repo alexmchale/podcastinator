@@ -23,6 +23,16 @@ module Podcastinator
       FIELDS.each do |field|
         instance_variable_set("@#{ field }", options[field] || options[field.to_s])
       end
+
+      if @items.kind_of? Array
+        @items.map! do |item|
+          if item.kind_of? Hash
+            Item.new(item)
+          else
+            item
+          end
+        end
+      end
     end
 
     class Item

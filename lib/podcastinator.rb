@@ -19,8 +19,16 @@ require "podcastinator/generator"
 module Podcastinator
 
   def self.start(options = self.parse_cli_options)
-    feed = Podcastinator::Feed.new(options)
-    puts Podcastinator::Generator.new(feed).to_xml
+    feed = Podcastinator::FileFeed.new(options)
+    xml  = Podcastinator::Generator.new(feed).to_xml
+
+    if options[:output]
+      File.open(options[:output], "w") do |f|
+        f.puts(xml)
+      end
+    else
+      puts xml
+    end
   end
 
   def self.parse_cli_options
